@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rustic Capture - Vintage Photo Editor Case Study</title>
+    <style>
+        :root {
+            --primary-color: #1c1c1c;
+            --accent-color: #647a55;
+            --bg-color: #f7f7f3;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --muted-text: #666;
+            --border-radius: 16px;
+            --shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 50px;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 35px;
+            margin-bottom: 45px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--muted-text);
+            margin-bottom: 10px;
+        }
+
+        .mockups {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            /* Added gap for better spacing */
+        }
+
+        .mockups img {
+            width: 100%;
+            max-width: 280px;
+            /* Increased max-width for better display */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: var(--border-radius);
+            /* margin: 12px; Removed individual margin to use gap */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease;
+        }
+
+        .mockups img:hover {
+            transform: scale(1.04);
+        }
+
+        .features,
+        .learnings {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+
+            .features,
+            .learnings {
+                flex-direction: row;
+            }
+        }
+
+        .features>div,
+        .learnings>div {
+            flex: 1;
+            background-color: #eef1ea;
+            border-left: 6px solid var(--accent-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <h1>Rustic Capture: Vintage Photo Editor</h1>
+    </div>
+
+    <div class="section">
+        <h2>Project Overview</h2>
+        <ul>
+            <li><strong>What it's about:</strong> Rustic Capture is a web application designed to transform modern
+                digital photos into vintage-looking images with the addition of custom text and borders, mimicking
+                classic photographic styles.</li>
+            <li><strong>Target audience:</strong> Individuals who wish to add a nostalgic, retro, or artistic flair to
+                their personal photos, digital artists, and social media enthusiasts.</li>
+            <li><strong>Your role:</strong> UX/UI Designer & Frontend Developer & Backend Developer
+               </li>
+            <li><strong>Tools used:</strong> HTML, CSS, JavaScript (implied for functionality), Figma (for design,
+                assumed),flask for Backend</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Problem Statement</h2>
+        <p>In an age of pristine digital photography, many users desire the unique aesthetic and charm of older, analog
+            photos. The challenge was to create an intuitive and accessible platform that allows users to easily apply
+            authentic-looking vintage effects to their modern images, without requiring complex photo editing software.
+        </p>
+        <ul>
+            <li>Why does this product need to exist?*To provide a simple, on-demand solution for adding a
+                distinct vintage character to digital photographs, catering to a growing trend of nostalgic visual
+                content.</li>
+            <li>What user problems or frustrations did it address? It addresses the difficulty non-designers face in
+                achieving a convincing vintage look, the time-consuming nature of manual edits in complex software, and
+                the desire for quick, high-quality stylistic transformations.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Design Process (Optional)</h2>
+        <ul>
+            <li>Research methods used: Competitor analysis of existing photo editors and vintage filter apps to
+                identify common features and user expectations. Visual research into historical photography styles
+                (sepia tones, grain, soft focus).</li>
+            <li>Wireframes/sketches: Initial sketches focused on a clean, camera-like interface, prioritizing the
+                main action buttons (capture, apply effect).</li>
+            <li>Color palette & typography: A muted, earthy color palette with accents of green (#647a55) and a
+                strong, dark primary color (#1c1c1c) was chosen to evoke a classic, yet modern feel. Poppins sans-serif
+                font ensures readability and a contemporary touch.</li>
+            <li>Prototyping or development steps: Developed a functional prototype demonstrating image upload,
+                filter application, and text overlay, iteratively refining the user flow for simplicity and
+                effectiveness.</li>
+        </ul>
+    </div>
+
+    <div class="section mockups">
+        <h2>Screenshots or Mockups</h2>
+        <p>Below are key screens illustrating the application's interface and capabilities:</p>
+    
+        <img src="1.png" alt="Original Image Uploaded - A vibrant flower ready for transformation.">
+        <p><strong>Original Image Uploaded</strong> – A vibrant flower ready for transformation.</p>
+    
+        <img src="2.png" alt="Vintage Effect Applied - The flower image transformed with a sepia-toned, aged filter.">
+        <p><strong>Vintage Effect Applied</strong> – Sepia-toned aged filter applied.</p>
+    
+        <img src="3.png" alt="Text Addition - The vintage image with custom text 'Beautiful' added.">
+        <p><strong>Text Addition</strong> – Vintage image with custom text: "Beautiful".</p>
+    
+        <img src="4.png" alt="Rustic Capture Homepage/Gallery - Showcasing examples of vintage transformed images.">
+        <p><strong>Gallery View</strong> – Rustic homepage/gallery showcasing vintage results.</p>
+    
+        <img src="5.png" alt="Rustic Capture Thank You Screen.">
+        <p><strong>Thank You Screen</strong> – End page of the UI flow.</p>
+    </div>
+    
+
+    <div class="section features">
+        <div>
+            <h3>Key Features</h3>
+            <ul>
+                <li>Intuitive Photo Capture/Upload: A clear "CAPTURE PHOTO" button for easy image input.</li>
+                <li>One-Click Vintage Effect:A prominent "APPLY VINTAGE EFFECT" button to instantly transform
+                    images.</li>
+                <li>Customizable Text Overlay: Users can add personalized text (e.g., "Beautiful") to their
+                    processed images.</li>
+                <li>Thematic UI/UX: A clean, visually appealing interface with a "camera" motif and a palette that
+                    complements the vintage theme.</li>
+                <li>Inspirational Gallery: A collection of pre-existing vintage-style images on the homepage to
+                    inspire users and showcase possibilities.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section learnings">
+        <div>
+            <h3>What I Learned / Challenges Faced</h3>
+            <ul>
+                <li>Balancing Authenticity and Simplicity:** The main challenge was creating a vintage effect that
+                    looked genuine without overwhelming the user with too many complex options. A single, well-tuned
+                    filter was chosen for simplicity.</li>
+                <li>age Processing Performance: Ensuring that the filter application was quick and responsive,
+                    even for larger image files, was a technical consideration.</li>
+                <li>User Feedback Integration: Initial iterations might have focused too much on a single look;
+                    future improvements could involve offering slight variations in vintage tones based on user
+                    preferences.</li>
+                <li>GitHub Repo: <a href="https://github.com/Sinhavaishnavi/UI-DESIGN2/blob/main/README.md" target="_blank">View Code</a>
+                   </li>
+                <li>Live Demo: <a href="https://www.figma.com/proto/6nJJrCIHCa6PwbfB8cChae/Untitled?t=IPTq5xMwrVq4X88b-1&scaling=scale-down&content-scaling=responsive&page-id=0%3A1&node-id=2-9&starting-point-node-id=2%3A9" target="_blank">Check it Out</a> 
+            </ul>
+        </div>
+        <button onclick="history.back()"
+            style="margin: 20px 0; padding: 10px 20px; background-color: #647a55; color: white; border: none; border-radius: 8px; cursor: pointer; font-family: 'Poppins', sans-serif; transition: background 0.3s;">
+            ← Back
+        </button>
+
+    </div>
+</body>
+
+</html>

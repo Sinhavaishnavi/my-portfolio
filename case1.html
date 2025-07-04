@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Live Facial Analysis Case Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1c1c1c;
+            --accent-color: #647a55;
+            --bg-color: #f7f7f3;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --muted-text: #666;
+            --border-radius: 16px;
+            --shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 50px;
+            max-width: 960px;
+            margin: auto;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 35px;
+            margin-bottom: 45px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--muted-text);
+            margin-bottom: 10px;
+        }
+
+        .mockups-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .mockups-grid img {
+            width: 100%;
+            max-width: 280px;
+            /* Adjusted for better visibility */
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+            transition: transform 0.3s ease;
+            object-fit: contain;
+            /* Ensure images fit without cropping */
+        }
+
+        .mockups-grid img:hover {
+            transform: scale(1.04);
+        }
+
+        .mockup-item {
+            text-align: center;
+            flex-basis: calc(33% - 20px);
+            /* For 3 items per row on larger screens */
+            max-width: 280px;
+        }
+
+        .mockup-item p {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: var(--primary-color);
+            /* Make labels stand out more */
+            font-weight: 500;
+        }
+
+
+        .features,
+        .learnings {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+
+            .features,
+            .learnings {
+                flex-direction: row;
+            }
+
+            .mockup-item {
+                flex-basis: calc(33% - 20px);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .mockup-item {
+                flex-basis: 100%;
+                /* Stack on small screens */
+            }
+        }
+
+
+        .features>div,
+        .learnings>div {
+            flex: 1;
+            background-color: #eef1ea;
+            border-left: 6px solid var(--accent-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-button {
+            padding: 12px 25px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-button:hover {
+            background-color: #5a6e4d;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="section">
+        <h1>AI-Powered Live Facial Analysis & Skincare Recommendation Platform</h1>
+    </div>
+
+    <div class="section">
+        <h2>Project Overview</h2>
+        <ul>
+            <li><strong>What it's about:</strong> A web-based application designed to provide real-time facial analysis
+                to determine skin type, identify issues like acne and pigmentation, and potentially offer personalized
+                skincare recommendations. It leverages AI/ML for accurate face tracking and analysis.</li>
+            <li><strong>Target audience:</strong> Individuals interested in understanding their skin health, beauty
+                enthusiasts, and potentially beauty brands or professionals offering virtual consultations.</li>
+            <li><strong>Your role:</strong> UX Designer, UI Designer, Frontend Developer, Machine Learning model Integration
+                ( role in linking the model to the UI).</li>
+            <li><strong>Tools used:</strong> Figma (UI/UX Design), HTML/CSS, JavaScript ),
+                Potentially a real-time face tracking/analysis .</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Problem Statement</h2>
+        <p>The modern skincare market is saturated and often confusing, leading consumers to struggle with identifying
+            their specific skin needs and choosing effective products. This product addresses the lack of accessible,
+            personalized, and objective skin analysis.</p>
+        <ul>
+            <li><strong>Why does this product/app/site need to exist?</strong>
+                <ul>
+                    <li>To empower users with data-driven insights into their skin without the need for physical
+                        consultations.</li>
+                    <li>To demystify skincare by clearly identifying specific concerns like acne, pigmentation, and skin
+                        type.</li>
+                    <li>To provide a convenient, instant, and engaging way for individuals to understand their unique
+                        skin profile and potentially guide them towards more suitable skincare routines and products.
+                    </li>
+                </ul>
+            </li>
+            <li><strong>What user problems or frustrations did it address?</strong>
+                <ul>
+                    <li>Confusion about personal skin type and specific conditions.</li>
+                    <li>Ineffective product choices due to lack of targeted information.</li>
+                    <li>Inconvenience and cost barriers of traditional dermatological consultations.</li>
+                    <li>Desire for objective, technology-driven skin assessment.</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Design Process</h2>
+        <ul>
+            <li><strong>Research methods used:</strong>
+                <ul>
+                    <li><strong>Competitive Analysis:</strong> Studied existing beauty tech apps and virtual try-on
+                        tools to identify best practices and gaps.</li>
+                    <li><strong>User Personas & Journey Mapping:</strong> Developed profiles of target users (e.g.,
+                        skincare novices, beauty enthusiasts) and mapped their current skincare routines and pain
+                        points.</li>
+                    <li><strong>Technology Feasibility:</strong> Explored capabilities and limitations of real-time
+                        facial analysis and ML integration.</li>
+                </ul>
+            </li>
+            <li><strong>Wireframes/sketches:</strong> Began with low-fidelity sketches and wireframes to outline core
+                layouts for the login, home page, analysis initiation, and crucial results display screens, focusing on
+                user flow.</li>
+            <li><strong>Color palette & typography:</strong>
+                <ul>
+                    <li><strong>Palette:</strong> Utilized a soft, inviting gradient (pinks, purples) combined with
+                        clean whites and subtle grays to create a modern, approachable, and professional aesthetic
+                        suitable for a beauty/wellness product.</li>
+                    <li><strong>Typography:</strong> Selected legible and clean sans-serif fonts (Poppins) for both
+                        headings and body text to ensure clarity and maintain a contemporary feel.</li>
+                </ul>
+            </li>
+            <li><strong>Prototyping or development steps:</strong>
+                <ul>
+                    <li>Created high-fidelity mockups in Figma for key screens, including interactive prototypes to
+                        simulate the user flow from login to analysis initiation.</li>
+                    <li>Developed the frontend using [Specify your framework, e.g., React], focusing on component-based
+                        architecture for scalability and maintainability.</li>
+                    <li>Integrated frontend components with a mock or actual API for facial analysis data (where the ML
+                        model resides).</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section mockups">
+        <h2>Screenshots or Mockups</h2>
+        <p></p>
+        <div class="mockups-grid">
+            <div class="mockup-item">
+                <img src="login.png" alt="LoginPage">
+                <p>Login Page: Clean and inviting interface for user authentication.</p>
+            </div>
+            <div class="mockup-item">
+                <img src="home1.png" alt="Homepage & Value Proposition">
+                <p>Homepage & Value Proposition: Highlights key benefits and guides user to analysis.</p>
+            </div>
+            <div class="mockup-item">
+                <img src="home2.png" alt="Technology Explanation">
+                <p>Technology Explanation: Detail of the AI/ML process and "How It Works" steps.</p>
+            </div>
+            <div class="mockup-item">
+                <img src="resukt1.png" alt="Live Analysis Interface">
+                <p>Live Analysis Interface: Real-time camera feed with facial tracking and user prompts.</p>
+            </div>
+            <div class="mockup-item">
+                <img src="result2.png" alt="Analysis Results & Legend">
+                <p>Analysis Results & Legend: (Crucial) Visual overlays showing acne, pigmentation, skin type, and tone
+                    as detected by ML.</p>
+            </div>
+            <div class="mockup-item">
+                <img src="thank you.png" alt="Comprehensive Footer">
+                <p>thank you .</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section features">
+        <div>
+            <h3>Key Features</h3>
+            <ul>
+                <li>Intuitive Account Management: Seamless sign-up and login process.</li>
+                <li>Real-time Facial Tracking: Utilizes an ML model for dynamic face analysis and precise landmark
+                    detection.</li>
+                <li>Multi-faceted Skin Analysis: Identifies skin type, acne severity and location, pigmentation,dark circle, and
+                    skin tone.</li>
+                <li>Clear Visual Feedback: Provides immediate prompts during live analysis (e.g., "face the
+                    camera").</li>
+                <li>Detailed Analysis Results (Conceptualized in UI): Designed to display complex ML data in
+                    user-friendly visual overlays (e.g., acne maps, pigmentation zones, skin type outlines).</li>
+                <li>Comprehensive Information Architecture: Clean navigation bar and detailed footer for easy access
+                    to all features and resources.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section learnings">
+        <div>
+            <h3>What I Learned / Challenges Faced</h3>
+            <ul>
+                <li>Translating ML Data to User-Friendly UI: The primary challenge was designing how complex data
+                    from the ML model (e.g., hundreds of facial points, various skin conditions) could be visualized
+                    intuitively and actionably for the user. This involved iterative design for overlays, color codes,
+                    and textual explanations.</li>
+                <li>Ensuring User Engagement with Technical Features:Balancing the technical explanation of "Our
+                    Technology" with a simple "How It Works" guide was key to ensuring users understood and trusted the
+                    process without being overwhelmed.</li>
+                <li>Designing for Real-Time Interaction: Considering the immediate feedback loop required for
+                    camera-based input (e.g., guiding users to position themselves correctly for optimal analysis).</li>
+                <li>The Importance of "Showing" the Value:Realized the absolute necessity of visually demonstrating
+                    the *output* of the ML model for a complete user experience. While the model was functional,
+                    ensuring its results were presented clearly and compellingly through the UI became paramount.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Links</h2>
+        <ul>
+            <li>GitHub Repo: <a href="https://github.com/Sinhavaishnavi/ui-design/blob/main/README.md" target="_blank">View Code</a> 
+              </li>
+            <li>Live Demo: <a href="https://www.figma.com/proto/himtVEPvT5IZgv8WyFbIIW/Untitled?node-id=88-36&p=f&t=8V1qiFDhRUVKFuuC-1&scaling=scale-down&content-scaling=responsive&page-id=0%3A1&starting-point-node-id=88%3A36" target="_blank">Check it Out</a> </li>
+        </ul>
+    </div>
+
+    <div class="back-button-container">
+        <button onclick="history.back()" class="back-button">
+            ← Back
+        </button>
+    </div>
+<script>
+    const desktopBtn = document.getElementById("desktopView");
+        const mobileBtn = document.getElementById("mobileView");
+     desktopBtn.addEventListener("click", () => {
+            body.classList.remove("mobile-preview");
+            desktopBtn.classList.add('active');
+            desktopBtn.setAttribute('aria-pressed', 'true');
+            mobileBtn.classList.remove('active');
+            mobileBtn.setAttribute('aria-pressed', 'false');
+
+            desktopBtn.querySelector('svg').classList.replace('text-gray-500', 'text-blue-600');
+            mobileBtn.querySelector('svg').classList.replace('text-blue-600', 'text-gray-500');
+        });
+
+        mobileBtn.addEventListener("click", () => {
+            body.classList.add("mobile-preview");
+            mobileBtn.classList.add('active');
+            mobileBtn.setAttribute('aria-pressed', 'true');
+            desktopBtn.classList.remove('active');
+            desktopBtn.setAttribute('aria-pressed', 'false');
+
+            mobileBtn.querySelector('svg').classList.replace('text-gray-500', 'text-blue-600');
+            desktopBtn.querySelector('svg').classList.replace('text-blue-600', 'text-gray-500');
+        });
+</script>
+</body>
+
+</html>

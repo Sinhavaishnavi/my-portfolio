@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth transition-colors duration-500">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UI/UX Designer Portfolio</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --color-bg: #faf8f0;
+            --color-text: #2f2f2f;
+            --color-primary: #8b9a78;
+            --color-primary-dark: #788a64;
+            --color-gray-light: #f9fafb;
+            --color-gray-border: #ccc;
+            --color-gray-text: #666;
+        }
+
+        .dark {
+            --color-bg: #202020;
+            --color-text: #f0f0f0;
+            --color-primary: #aacc88;
+            --color-primary-dark: #94b36a;
+            --color-gray-light: #2a2a2a;
+            --color-gray-border: #444;
+            --color-gray-text: #bbb;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Playfair Display", serif;
+            color: var(--color-text);
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            font-weight: 600;
+            border-radius: 9999px;
+            padding: 0.75rem 1.75rem;
+            box-shadow: 0 4px 8px rgba(139, 154, 120, 0.25);
+            transition: background-color 0.3s ease, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            user-select: none;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus-visible {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(120, 138, 100, 0.5);
+            outline-offset: 3px;
+            outline: 3px solid var(--color-primary-dark);
+        }
+
+        .btn-primary svg {
+            stroke: var(--color-bg);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            width: 1em;
+            height: 1em;
+            transition: stroke 0.3s ease;
+        }
+
+        .btn-primary:hover svg {
+            stroke: var(--color-bg);
+        }
+
+        /* Outline button */
+        .btn-outline {
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            cursor: pointer;
+            border-radius: 9999px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover,
+        .btn-outline:focus-visible {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            outline-offset: 3px;
+            outline: 3px solid var(--color-primary-dark);
+        }
+
+        /* Icon container */
+        .icon-green {
+            color: var(--color-primary);
+        }
+
+        /* Hover animate for cards */
+        .hover-animate {
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
+            will-change: transform;
+        }
+
+        .hover-animate:hover,
+        .hover-animate:focus-within {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.12);
+            outline-offset: 3px;
+            outline: 3px solid var(--color-primary);
+            border-radius: 1rem;
+        }
+
+        /* Body mobile preview */
+        .mobile-preview>.container {
+            max-width: 375px !important;
+            margin: 0 auto !important;
+            border-radius: 1rem !important;
+            border: 1px solid var(--color-gray-border) !important;
+            overflow: hidden !important;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Scrollbar hidden on preview for neatness */
+        .mobile-preview {
+            overflow-x: hidden;
+        }
+
+        /* Smooth scroll anchor */
+        a {
+            scroll-behavior: smooth;
+        }
+
+        /* Header nav link hover */
+        nav a {
+            position: relative;
+            overflow: hidden;
+            font-weight: 500;
+            color: var(--color-primary-dark);
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            color: var(--color-primary);
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+            border-radius: 1px;
+        }
+
+        nav a:hover::after,
+        nav a:focus-visible::after {
+            transform: scaleX(1);
+        }
+
+        /* Device toggle buttons active state */
+        #desktopView.active svg {
+            color: #3b82f6;
+            /* blue-500 */
+        }
+
+        #mobileView.active svg {
+            color: #3b82f6;
+        }
+
+        /* Scroll to top btn hidden */
+        .scroll-arrow {
+            transition: opacity 0.25s ease;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-6 transition-colors duration-700">
+    <div class="container w-full max-w-7xl bg-white p-6 sm:p-10 rounded-3xl shadow-lg transition-colors duration-700"
+        data-aos="fade-up">
+        <!-- Header -->
+        <header class="flex items-center justify-between border-b border-gray-300 pb-8">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center icon-green"
+                    aria-hidden="true">
+                    <!-- Icon: concentric circles -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6" viewBox="0 0 24 24"
+                        aria-hidden="true" focusable="false">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="5"></circle>
+                    </svg>
+                </div>
+                <span class="font-semibold text-lg tracking-wide select-text">Vaishnavi</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <nav class="hidden lg:flex items-center" aria-label="Primary navigation">
+                    <ul class="flex space-x-6 text-sm font-medium" role="list">
+                        <li><a href="#about"
+                                class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 rounded">About</a>
+                        </li>
+                        <li><a href="#projects"
+                                class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 rounded">Projects</a>
+                        </li>
+                        <li><a href="#skills"
+                                class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 rounded">Skills</a>
+                        </li>
+                        <li><a href="#contact"
+                                class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 rounded">Contact</a>
+                        </li>
+                        <li><a href="#resume"
+                                class="btn-outline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
+                                role="button">Resume</a></li>
+                    </ul>
+                </nav>
+                <button id="themeToggle" aria-label="Toggle dark mode"
+                    class="text-sm px-4 py-2 border border-gray-400 rounded-full hover:bg-green-100 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400">Toggle
+                    Dark</button>
+            </div>
+        </header>
+
+        <!-- Device View Toggle -->
+        <div class="flex justify-center items-center gap-6 my-8" role="group" aria-label="Switch device preview"
+            data-aos="fade-up" data-aos-delay="100">
+            <button id="desktopView" aria-pressed="true" aria-label="Desktop view"
+                class="group focus:outline-none active" type="button" tabindex="0">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="w-10 h-10 group-hover:text-blue-500 text-blue-600 transition-colors" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M9.75 17h4.5" />
+                    <rect x="4" y="5" width="16" height="10" />
+                </svg>
+            </button>
+            <div class="w-px h-8 bg-gray-300"></div>
+            <button id="mobileView" aria-pressed="false" aria-label="Mobile view" class="group focus:outline-none"
+                type="button" tabindex="-1">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    class="w-6 h-10 group-hover:text-blue-500 text-gray-500 transition-colors" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="7" y="4" width="10" height="16" rx="2" ry="2" />
+                    <path d="M11 18h2" />
+                </svg>
+            </button>
+        </div>
+
+       
+
+        <!-- About Section -->
+        <section id="about" class="mt-24 max-w-3xl mx-auto px-4 sm:px-0" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="text-3xl font-bold mb-6 text-center">About Me</h2>
+            <p class="text-gray-600 dark:text-gray-300 text-center leading-relaxed">
+                I’m a UI/UX designer passionate about crafting beautiful and functional experiences. My work blends
+                thoughtful research with elegant interface design.
+            </p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mt-24 max-w-5xl mx-auto px-4 sm:px-0" data-aos="fade-up" data-aos-delay="400">
+            <h2 class="text-3xl font-bold mb-6 text-center">Featured Projects</h2>
+            <div class="grid sm:grid-cols-2 gap-8">
+                <article tabindex="0"
+                    class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 hover-animate cursor-pointer transition-colors focus-within:ring-4 ring-green-300"
+                    aria-labelledby="project-one-title">
+                    <h3 id="project-one-title" class="text-xl font-semibold mb-2">Project One</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Description about the first project goes here.</p>
+                </article>
+                <article tabindex="0"
+                    class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 hover-animate cursor-pointer transition-colors focus-within:ring-4 ring-green-300"
+                    aria-labelledby="project-two-title">
+                    <h3 id="project-two-title" class="text-xl font-semibold mb-2">Project Two</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Description about the second project goes here.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mt-24 max-w-5xl mx-auto px-4 sm:px-0" data-aos="fade-up" data-aos-delay="500">
+            <h2 class="text-3xl font-bold mb-6 text-center">Skills</h2>
+            <ul class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <li
+                    class="bg-white dark:bg-gray-900 shadow rounded-lg py-4 px-2 font-semibold text-gray-700 dark:text-gray-100 hover-animate cursor-default">
+                    Figma</li>
+                <li
+                    class="bg-white dark:bg-gray-900 shadow rounded-lg py-4 px-2 font-semibold text-gray-700 dark:text-gray-100 hover-animate cursor-default">
+                    Adobe XD</li>
+                <li
+                    class="bg-white dark:bg-gray-900 shadow rounded-lg py-4 px-2 font-semibold text-gray-700 dark:text-gray-100 hover-animate cursor-default">
+                    HTML &amp; CSS</li>
+                <li
+                    class="bg-white dark:bg-gray-900 shadow rounded-lg py-4 px-2 font-semibold text-gray-700 dark:text-gray-100 hover-animate cursor-default">
+                    JavaScript</li>
+            </ul>
+        </section>
+        <!-- Resume Section -->
+        <section id="resume" class="mt-16 text-center" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="text-3xl font-semibold mb-6">Download My Resume</h2>
+            <a href="#"
+                class="btn-primary inline-block px-6 py-3 rounded-full font-medium shadow hover:shadow-lg transition-all hover:scale-105 focus-visible:ring-4 ring-green-300"
+                role="button" aria-label="Download Vaishnavi's Resume">
+                Get Resume
+                <svg aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="ml-2 w-5 h-5"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 13l-5 5m0 0l-5-5m5 5V6"></path>
+                </svg>
+            </a>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mt-24 text-center max-w-3xl mx-auto px-4 sm:px-0" data-aos="fade-up"
+            data-aos-delay="600">
+            <h2 class="text-3xl font-bold mb-6">Let's Connect</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                Feel free to reach out for collaborations or just a friendly hello 👋
+            </p>
+            <a href="mailto:vaishnavi@example.com" class="btn-primary focus-visible:ring-4 ring-green-300"
+                role="button">Say Hello</a>
+        </section>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false,
+            duration: 700,
+        });
+
+        const themeToggle = document.getElementById('themeToggle');
+        const desktopBtn = document.getElementById("desktopView");
+        const mobileBtn = document.getElementById("mobileView");
+        const body = document.body;
+
+        // Initialize with desktop active
+        desktopBtn.classList.add('active');
+        desktopBtn.setAttribute('aria-pressed', 'true');
+        mobileBtn.classList.remove('active');
+        mobileBtn.setAttribute('aria-pressed', 'false');
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            // Optional: button text toggle
+            themeToggle.textContent = document.documentElement.classList.contains('dark') ? 'Toggle Light' : 'Toggle Dark';
+        });
+
+        desktopBtn.addEventListener("click", () => {
+            body.classList.remove("mobile-preview");
+            desktopBtn.classList.add('active');
+            desktopBtn.setAttribute('aria-pressed', 'true');
+            mobileBtn.classList.remove('active');
+            mobileBtn.setAttribute('aria-pressed', 'false');
+
+            desktopBtn.querySelector('svg').classList.replace('text-gray-500', 'text-blue-600');
+            mobileBtn.querySelector('svg').classList.replace('text-blue-600', 'text-gray-500');
+        });
+
+        mobileBtn.addEventListener("click", () => {
+            body.classList.add("mobile-preview");
+            mobileBtn.classList.add('active');
+            mobileBtn.setAttribute('aria-pressed', 'true');
+            desktopBtn.classList.remove('active');
+            desktopBtn.setAttribute('aria-pressed', 'false');
+
+            mobileBtn.querySelector('svg').classList.replace('text-gray-500', 'text-blue-600');
+            desktopBtn.querySelector('svg').classList.replace('text-blue-600', 'text-gray-500');
+        });
+    </script>
+</body>
+
+</html>
